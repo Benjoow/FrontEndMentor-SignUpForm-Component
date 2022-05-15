@@ -1,0 +1,284 @@
+@forward 'globals';
+@use './globals/function' as f;
+@use './globals/variables' as m; // For Mixin usage
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/*******************
+  Typography reset
+*******************/
+
+
+html {
+  line-height: 1.15;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+
+/***************
+Typography
+***************/
+
+body {
+  color: var(--primaryFont-color);
+}
+
+.presentation__title {
+  font-weight: 700;
+  font-size: clamp(25px, 3.5vw, 48px);
+  line-height: 1.3;
+}
+
+.presentation__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+
+  @include m.breakpoint {
+    font-size: 16px;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+.formTrial__offer {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.formTrial__form-item input::placeholder,
+.formTrial__form-item input {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--labelText-color);
+
+  @include m.breakpoint {
+    font-size: 16px;
+  }
+}
+
+.formTrial__form-item {
+  position: relative;
+}
+
+// Form Error Message 
+.alert-Message {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--alertMessage-color);
+}
+
+.formTrial__form-submit {
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.formTrial__form-advertise {
+  color: var(--agreementSentence-color);
+  font-size: 11px;
+  line-height: 1.6;
+
+  strong {
+    color: var(--alertMessage-color);
+    font-weight: 600;
+  }
+}
+
+
+/***************
+  Layouts
+***************/
+
+body {
+  background: url(../images/bg-intro-mobile.png);
+  background-color: var(--backgroundBody-color);
+  background-size: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include m.breakpoint {
+    background: url(../images/bg-intro-desktop.png);
+    background-color: var(--backgroundBody-color);
+    background-size: 1540px;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: Min(90%, f.convertToRem(345));
+
+  @include m.breakpoint {
+    width: Min(90%, f.convertToRem(1060));
+  }
+}
+
+.presentation {
+  text-align: center;
+  margin-bottom: 45px;
+
+  @include m.breakpoint {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+.presentation__title {
+  width: 80%;
+  margin: auto;
+  margin-bottom: f.convertToRem(28);
+
+  @include m.breakpoint {
+    width: auto;
+    margin: 0;
+    margin-bottom: f.convertToRem(20);
+  }
+}
+
+.formTrial__offer,
+.formTrial__form,
+.formTrial__form-submit {
+  border-radius: 8px;
+}
+
+.formTrial__offer,
+.formTrial__form {
+  box-shadow: 0 7px 2px var(--boxshadow-color);
+}
+
+.formTrial__offer {
+  padding: f.convertToRem(12) f.convertToRem(64);
+  text-align: center;
+  background-color: var(--trialMessage-color);
+  margin-bottom: f.convertToRem(22);
+}
+
+.formTrial__form {
+  background-color: var(--backgroundForm-color);
+  padding: f.convertToRem(16);
+
+  @include m.breakpoint {
+    padding: f.convertToRem(30);
+  }
+}
+
+.formTrial__form-item,
+.formTrial__form-submit {
+  margin-bottom: f.convertToRem(14);
+
+  @include m.breakpoint {
+    margin-bottom: f.convertToRem(16);
+  }
+}
+
+// Hidden label inside my form for assistive techno compatible https://www.w3.org/WAI/tutorials/forms/labels/
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.formTrial__form-advertise {
+  margin: auto;
+  width: 90%;
+  text-align: center;
+}
+
+.attribution {
+   font-size: 11px;
+   text-align: center;
+   margin-top: 24px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+
+@include m.breakpoint {
+  .row {
+    display: flex;
+    gap: 40px;
+  }
+
+  .formTrial {
+    width: 50%;
+  }  
+}
+
+/***************
+  Components
+***************/
+
+/**** Submit Button ****/
+
+.formTrial__form-submit {
+  background-color: var(--submitButton-color);
+  width: 100%;
+  padding: f.convertToRem(12) 0;
+  box-shadow: inset 0 -4px var(--submitButton-boxShadow-color);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--submitButton-hover-color);
+  }
+}
+
+/**** Input ****/
+
+.formTrial__form-item input {
+  position: relative;
+  width: 100%;
+  padding: f.convertToRem(16) f.convertToRem(6);
+  border: 1px solid var(--inputBorder-color);
+  border-radius: 4px;
+  padding-left: f.convertToRem(16);
+
+  &:focus,
+  &:active {
+    border: 1px solid var(--inputBorder-focus-color); 
+  }
+
+  @include m.breakpoint {
+    padding-left: f.convertToRem(24);
+  }
+}
+
+
+.alert-icon {
+  background: url(../images/icon-error.svg) no-repeat;
+  background-size: 20px;
+  background-position: right 6px center;
+}
+
+.alert-Message {
+  margin-top: 3px;
+  text-align: right;
+}
+
+.alertInput input {
+  border: 2px solid var(--inputBorder-alert-color);
+  border-radius: 4px;
+}

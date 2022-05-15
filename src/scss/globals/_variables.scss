@@ -1,0 +1,47 @@
+@use 'function' as f;
+
+:root {
+
+/*========= 
+  COLOR
+=========*/
+
+///// Font colors /////
+
+  --primaryFont-color: hsl(0, 0%, 100%);
+  --labelText-color: hsl(249, 10%, 26%); 
+  --agreementSentence-color: hsl(246, 25%, 77%);
+  --alertMessage-color: hsl(0, 100%, 74%);
+
+///// Background colors /////
+
+  --backgroundBody-color: hsl(0, 100%, 74%);
+  --backgroundForm-color: hsl(0, 0%, 100%);
+  --submitButton-color: hsl(154, 59%, 51%);
+  --submitButton-hover-color: hsl(154, 59%, 72%);
+  --trialMessage-color: hsl(248, 32%, 49%);
+
+///// Box-shadow colors /////
+
+--boxshadow-color: hsla(0, 0%, 0%, 0.2);
+--submitButton-boxShadow-color: hsl(154, 59%, 46%);
+
+///// input colors /////
+
+--inputBorder-color: hsl(246, 25%, 77%);
+--inputBorder-focus-color: hsl(246, 25%, 29%);
+--inputBorder-alert-color: hsl(0, 100%, 74%);
+
+}
+
+/*=========== 
+  BREAKPOINT
+===========*/
+
+$breakpoint-Large: f.convertToRem(940);
+
+@mixin breakpoint {
+  @media screen and (min-width: $breakpoint-Large) {
+    @content;
+  }
+}

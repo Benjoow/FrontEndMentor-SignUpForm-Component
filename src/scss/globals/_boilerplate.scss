@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+::placeholder {
+  opacity: 1 //firefox change opacity
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  outline: none;
+}
+
