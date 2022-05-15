@@ -3,7 +3,6 @@ const isEmpty = (input: HTMLInputElement): boolean => input.value.trim() === "" 
 
 const isEmailValid = (mailInput: HTMLInputElement): boolean => {
   const regex = new RegExp(/^[\w\.\?\-\!\?]+@[\w-\.?]+\.[\w]{2,3}$/);
-  console.log(regex.test(mailInput.value))
   return regex.test(mailInput.value);
 }
 
@@ -22,10 +21,10 @@ const showError = (inputdiv: HTMLDivElement, message: string): void => {
 
 const success = (inputdiv: HTMLDivElement): void => {
   let alertMessage: HTMLParagraphElement = inputdiv.querySelector(".alert-Message")!;
-  let iconAlert: HTMLSpanElement = inputdiv.querySelector(".alert-icon")!;
+  let iconAlert: HTMLSpanElement = inputdiv.querySelector("input")!;
+  iconAlert.classList.remove("alert-icon");
   alertMessage.textContent = "";
   inputdiv.classList.remove("alertInput");
-  iconAlert.classList.remove("alert-icon");
 }
 
 
